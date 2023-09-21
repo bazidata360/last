@@ -44,7 +44,7 @@ def load_dataset(file: str, load_options: Dict[Any, Any]) -> pd.DataFrame:
         )
         st.stop()
 
-@st.cache_resource(ttl=300)
+@st.cache(ttl=300)
 def load_config(
     config_streamlit_filename: str, config_instructions_filename: str, config_readme_filename: str
 ) -> Tuple[Dict[Any, Any], Dict[Any, Any], Dict[Any, Any]]:
@@ -74,7 +74,7 @@ def load_config(
     return dict(config_streamlit), dict(config_instructions), dict(config_readme)
 
 
-@st.cache_data(ttl=300)
+@st.cache(ttl=300)
 def download_toy_dataset(url: str) -> pd.DataFrame:
     """Downloads a toy dataset from an external source and converts it into a pandas dataframe.
 
@@ -93,7 +93,7 @@ def download_toy_dataset(url: str) -> pd.DataFrame:
     return df
 
 
-@st.cache_data(ttl=300)
+@st.cache(ttl=300)
 def load_custom_config(config_file: io.BytesIO) -> Dict[Any, Any]:
     """Loads config toml file from user's file system as a dictionary.
 
@@ -128,7 +128,7 @@ def write_bytesio_to_file(filename: str, bytesio: io.BytesIO) -> None:
         outfile.write(bytesio.getbuffer())
 
 
-@st.cache_data(ttl=300)
+@st.cache(ttl=300)
 def load_image(image_name: str) -> Image:
     """Displays an image.
 
