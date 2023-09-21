@@ -8,7 +8,6 @@ import requests
 import streamlit as st
 import toml
 from PIL import Image
-import cache
 
 def get_project_root() -> str:
     """Returns project root path.
